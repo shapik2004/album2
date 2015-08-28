@@ -1,0 +1,112 @@
+.template-object-edit-panel *,
+{
+
+    margin-bottom: 2px;
+    margin-top: 2px;
+
+
+}
+
+
+
+.template-object-edit-panel form .form-group{
+
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+
+}
+
+.template-object-edit-panel .input-group{
+
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+
+.template-object-edit-panel  .input-group-addon
+{
+    min-width: 128px;
+    text-align: right;
+}
+
+input.form-control.color-picker[type="text"] {
+    display: inline-block;
+    width: 70%;
+}
+
+.miniColors-selector.color-picker.form-control.input-sm.miniColors{
+
+    margin-left: -100px;
+}
+
+#canvas-layout{
+
+    position: fixed;
+
+    top: 110px;
+
+    left: 0px;
+
+    right: 0px;
+
+    bottom: 300px;
+
+}
+
+.template-object-edit-panel{
+
+    position: fixed;
+    right: 0px;
+    left:0px;
+    bottom: 5px;
+    height: 130px;
+
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    background: #e7e7e7;
+}
+
+
+#canvas_normal{
+
+    position: absolute;
+}
+
+
+#canvas_text{
+
+    position: absolute;
+}
+
+#canvas_normal{
+
+    background-color: #ffffff;
+
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.wrapper-template-edit{
+
+    background-color: #c6c8c8;
+}
+
+.spanTemplateLastEdit{
+    padding-left: 10px;
+
+    color:#a1a1a1;
+
+    font-size: 14px;
+}
+
+.spanTemplateName{
+
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+
