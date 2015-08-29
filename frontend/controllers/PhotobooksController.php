@@ -1307,7 +1307,7 @@ class PhotobooksController extends BaseController
                 foreach($group['photos'] as $key=>$photo_id){
 
                     $mtime=UserUrl::photobookPhotos(false, $model->id, $model->user_id).DIRECTORY_SEPARATOR.UserUrl::imageFile($photo_id, UserUrl::IMAGE_THUMB);
-                    $photos[]=['photo_id'=>$photo_id, 'mtime'=>$mtime];   
+                    $photos[]=['photo_id'=>$photo_id, 'mtime'=>$mtime];
 
                 }
             }
