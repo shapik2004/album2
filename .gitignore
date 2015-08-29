@@ -36,3 +36,4 @@ phpunit.phar
 *.jar
 *.tar
 *.zip
+*.svg
