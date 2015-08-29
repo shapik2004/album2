@@ -6,9 +6,9 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'pgsql:host=localhost;dbname=photobook',
-            'username' => 'postgres',
-            'password' => 'Max31960',
+            'dsn' => 'pgsql:host=ec2-54-235-151-252.compute-1.amazonaws.com;dbname=d3m1jkh1saukl9',
+            'username' => 'nvwwtvmauftsvy',
+            'password' => 'T4Tl019smi9ETrJQHHc8GxxzPj',
             'charset' => 'utf8',
         ],
         'mailer' => [
