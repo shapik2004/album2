@@ -45,7 +45,7 @@ class AlphaId extends  Component
             $len = strlen($in) - 1;
 
             for ($t = $len; $t >= 0; $t--) {
-                $bcp = bcpow($base, $len - $t);
+                $bcp = pow($base, $len - $t);
                 $out = $out + strpos($index, substr($in, $t, 1)) * $bcp;
             }
 
@@ -67,7 +67,7 @@ class AlphaId extends  Component
             }
 
             for ($t = ($in != 0 ? floor(log($in, $base)) : 0); $t >= 0; $t--) {
-                $bcp = bcpow($base, $t);
+                $bcp = pow($base, $t);
                 $a   = floor($in / $bcp) % $base;
                 $out = $out . substr($index, $a, 1);
                 $in  = $in - ($a * $bcp);
