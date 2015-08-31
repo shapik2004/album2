@@ -32,4 +32,5 @@ phpunit.phar
 
 *.pdf
 *.tar
+*.zip
 
