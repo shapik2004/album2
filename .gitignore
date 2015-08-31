@@ -29,11 +29,7 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-*.psd
+
 *.pdf
-*.jpg
-*.png
-*.jar
 *.tar
-*.zip
-*.svg
+
