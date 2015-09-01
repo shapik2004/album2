@@ -20,7 +20,8 @@
     "yiisoft/yii2-bootstrap": "*",
     "yiisoft/yii2-swiftmailer": "*",
     "aws/aws-sdk-php": "2.5.2",
-    "yurkinx/yii2-image": "*"
+    "yurkinx/yii2-image": "*",
+    "symfony/event-dispatcher":"*"
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",
