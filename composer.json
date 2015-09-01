@@ -21,7 +21,8 @@
     "yiisoft/yii2-swiftmailer": "*",
     "aws/aws-sdk-php": "2.5.2",
     "yurkinx/yii2-image": "*",
-    "symfony/event-dispatcher":"*"
+    "symfony/class-loader": "^3.0@dev",
+    "symfony/yaml": "2.*"
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",
