@@ -21,6 +21,7 @@ use frontend\widgets\ImagePlaceholderReplacer;
 use frontend\widgets\TextPlaceholderReplacer;
 use frontend\widgets\ImageBackgroundReplacer;
 use yii\web\UploadedFile;
+use dosamigos\resourcemanager\AmazonS3ResourceManager;
 
 
 
