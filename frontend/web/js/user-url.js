@@ -24,7 +24,7 @@ var UserUrl=(function(){
         },
         home:function(ref_id){
 
-            return '/uploads/'+ref_id;
+            return 'https://s3.amazonaws.com/photobook-new/'+ref_id;
         },
         photobook:function(ref_id, id){
 

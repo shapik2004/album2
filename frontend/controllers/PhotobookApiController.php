@@ -932,13 +932,23 @@ class PhotobookApiController extends BaseController
 
                     if($file->size!==0){
 
+
+
                         Yii::getLogger()->log('files:'.print_r($file, true), YII_DEBUG);
 
                         Yii::getLogger()->log('files:'.print_r($_FILES, true), YII_DEBUG);
 
                         $file_id=AlphaId::id(rand(10000000000, 9999999999999));
                         $file_path=UserUrl::photobookPhotos(false, $pb_id, $user_id ).DIRECTORY_SEPARATOR. UserUrl::imageFile($file_id, UserUrl::IMAGE_ORIGINAL);
+
+                        $name = $ref.'/pb/'.$id. '/photos/'.  UserUrl::imageFile($file_id, UserUrl::IMAGE_ORIGINAL);
+                        Yii::$app->resourceManager->save($file, $name);
+
                         $file->saveAs($file_path);
+
+
+
+
 
                         $paths=[];
                         $paths[]=$file_path;
@@ -966,11 +976,35 @@ class PhotobookApiController extends BaseController
                                 $image->resize($size['width'],$size['height'],  $type);
                                 $image->save($file_resize_path);
 
+
+
+                                $file_tmp = new UploadedFile();
+
+                                $file_tmp->tempName=$file_resize_path;
+
+
+
+                                $name = $ref.'/pb/'.$id. '/photos/'. UserUrl::imageFile($file_id, $key);
+                                Yii::$app->resourceManager->save($file_tmp, $name);
+
+                                if(file_exists($file_resize_path)){
+                                    unlink($file_resize_path);
+                                }
+
+
+
                                 $paths[]=$file_resize_path;
                             }
                         }
 
                         $result=$model->addPhoto($file_id, $group, true);
+
+                        if(file_exists($file_path)){
+                            unlink($file_path);
+                        }
+
+
+
 
 
                         //Удаляем все файлы если не получилось сохранить

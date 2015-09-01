@@ -8,7 +8,10 @@ $baseDir = dirname($vendorDir);
 return array(
     'yii\\image\\' => array($vendorDir . '/yurkinx/yii2-image'),
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
+    'Guzzle\\Tests' => array($vendorDir . '/guzzle/guzzle/tests'),
+    'Guzzle' => array($vendorDir . '/guzzle/guzzle/src'),
     'Faker\\PHPUnit' => array($vendorDir . '/fzaninotto/faker/test'),
     'Faker' => array($vendorDir . '/fzaninotto/faker/src'),
     'Diff' => array($vendorDir . '/phpspec/php-diff/lib'),
+    'Aws' => array($vendorDir . '/aws/aws-sdk-php/src'),
 );

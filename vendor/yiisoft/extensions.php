@@ -66,4 +66,13 @@ return array (
       '@yii/image' => $vendorDir . '/yurkinx/yii2-image/yii/image',
     ),
   ),
+  '2amigos/yii2-resource-manager-component' => 
+  array (
+    'name' => '2amigos/yii2-resource-manager-component',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@dosamigos/resourcemanager' => $vendorDir . '/2amigos/yii2-resource-manager-component',
+    ),
+  ),
 );

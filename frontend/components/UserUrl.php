@@ -218,7 +218,7 @@ class UserUrl extends  Component
         $photobook_id=AlphaId::id($photobook_id);
 
         if($url){
-            $base_url=UserUrl::home(true, $user_id).'/'.'pb';
+            $base_url=UserUrl::homeS3(true, $user_id).'/'.'pb';
             return $base_url.'/'.$photobook_id;
         }else{
             $base_path=UserUrl::home(false, $user_id);
@@ -375,6 +375,26 @@ class UserUrl extends  Component
         }
 
 
+    }
+
+    public static function homeS3($url=false, $user_id=null)
+    {
+        if( Yii::$app->user->isGuest && $user_id==null)
+            return false;
+
+        if($user_id==null)
+        {
+            $user_id=Yii::$app->user->identity->getId();
+        }
+
+        $alpha_id=AlphaId::id($user_id);
+        if($url){
+            $base_url='http://s3.amazonaws.com/photobook-new';//Yii::getAlias('@web').'/'.'uploads';
+            return $base_url.'/'.$alpha_id;
+        }else{
+            $base_path=Yii::getAlias('@webroot').DIRECTORY_SEPARATOR.'uploads';
+            return UserUrl::createNonexistentDirInPath($base_path, $alpha_id);
+        }
     }
 
     public static function home($url=false, $user_id=null)

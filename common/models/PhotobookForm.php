@@ -20,6 +20,7 @@ use common\models\Template;
 use frontend\widgets\ImagePlaceholderReplacer;
 use frontend\widgets\TextPlaceholderReplacer;
 use frontend\widgets\ImageBackgroundReplacer;
+use yii\web\UploadedFile;
 
 
 
@@ -555,6 +556,13 @@ class PhotobookForm extends Model
 
 
 
+
+
+
+
+
+
+
         $user_pb_path=UserUrl::photobook(false,$this->id, $this->user_id);
 
         if(file_exists($user_pb_path)){
@@ -572,6 +580,19 @@ class PhotobookForm extends Model
         file_put_contents($text_image_path, $text_image_content);
 
 
+        $file_tmp = new UploadedFile();
+
+        $file_tmp->tempName=$text_image_path;
+
+
+
+        $name = AlphaId::id($this->user_id).'/pb/'.AlphaId::id($this->id). '/window_text/'. UserUrl::imageFile($this->id, UserUrl::IMAGE_ORIGINAL, 'png');
+        Yii::$app->resourceManager->save($file_tmp, $name);
+
+
+        unlink($text_image_path);
+
+
 
         $tracing_text=$line_1."\n".$line_2."\n".$line_3."\n"." "."\n"." "."\n"." "."\n"." "."\n"." ".$line_4;
 
@@ -585,6 +606,17 @@ class PhotobookForm extends Model
         file_put_contents($tracing_text_image_path, $tracing_text_image_content);
 
 
+        $file_tmp = new UploadedFile();
+
+        $file_tmp->tempName=$tracing_text_image_path;
+
+
+
+        $name = AlphaId::id($this->user_id).'/pb/'.AlphaId::id($this->id). '/tracing/'. UserUrl::imageFile($this->id, UserUrl::IMAGE_ORIGINAL, 'png');
+        Yii::$app->resourceManager->save($file_tmp, $name);
+
+
+        unlink($tracing_text_image_path);
 
         return
 
@@ -1580,6 +1612,20 @@ class PhotobookForm extends Model
                 $this->photos[$group]['photos']=[];
 
 
+            $file_path=UserUrl::photobookPhotos(false, $this->id, $this->user_id ).DIRECTORY_SEPARATOR. UserUrl::imageFile($photo_id, UserUrl::IMAGE_ORIGINAL);
+
+            $size=getimagesize($file_path);
+
+            if( empty($this->data['sizes'])){
+
+
+                $this->data['sizes']=[];
+            }
+
+
+
+            $this->data['sizes'][$photo_id]=['width'=>$size[0], 'height'=>$size[1], 'mtime'=>filemtime($file_path)];
+
             $this->photos[$group]['photos'][]=$photo_id;
 
             $current_photo=ThumbInGroup::widget([
@@ -2094,6 +2140,9 @@ class PhotobookForm extends Model
                         'photo_id'=>$photo_id,
                         'place_width'=>$place_width,
                         'place_height'=>$place_height,
+                        'real_width'=> $this->data['sizes'][$photo_id]['width'],
+                        'real_height'=> $this->data['sizes'][$photo_id]['height'],
+                        'mtime'=> $this->data['sizes'][$photo_id]['mtime'],
                         'image_size'=>UserUrl::IMAGE_MIDDLE,
                         'scale'=>$scale,
                         'pos_dx'=>$pos_dx,
@@ -2306,6 +2355,9 @@ class PhotobookForm extends Model
                                                     'photo_id'=>$photo_id,
                                                     'place_width'=>$place_width,
                                                     'place_height'=>$place_height,
+                                                    'real_width'=>$this->data['sizes'][$photo_id]['width'],
+                                                    'real_height'=>$this->data['sizes'][$photo_id]['height'],
+                                                    'mtime'=>$this->data['sizes'][$photo_id]['mtime'],
                                                     'image_size'=>$image_size,
                                                     'scale'=>$scale,
                                                     'pos_dx'=>$pos_dx,

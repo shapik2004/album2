@@ -24,6 +24,11 @@ class ImagePlaceholderReplacer extends Widget
     public $image_width;
     public $image_height;
 
+    public $real_width;
+    public $real_height;
+
+    public $mtime=0;
+
     public $image_size=UserUrl::IMAGE_MIDDLE;
     public $view='svg';
     public $scale=1.0;
@@ -54,13 +59,13 @@ class ImagePlaceholderReplacer extends Widget
         $image_real_width=$this->place_width*$scale;
         $image_real_height=$this->place_height*$scale;*/
 
-        $img_path=UserUrl::photobookPhotos(false, $this->photobook_id, $this->user_id).'/'.UserUrl::imageFile($this->photo_id, $this->image_size, $this->ext);
-        $size=getimagesize($img_path);
+        //$img_path=UserUrl::photobookPhotos(true, $this->photobook_id, $this->user_id).'/'.UserUrl::imageFile($this->photo_id, $this->image_size, $this->ext);
+        //$size=getimagesize($img_path);
 
         //$img_path=UserUrl::photobookPhotos(false, $this->photobook_id, $this->user_id).'/'.UserUrl::imageFile($this->photo_id, $this->image_size);
 
-        $image_real_width=$size[0];
-        $image_real_height=$size[1];
+        $image_real_width=$this->real_width;//$size[0];
+        $image_real_height=$this->real_height;//$size[1];
 
 
         $thumb_width = $this->place_width;
@@ -120,11 +125,11 @@ class ImagePlaceholderReplacer extends Widget
         }
 
         $img_url=UserUrl::photobookPhotos(true, $this->photobook_id, $this->user_id).'/'.UserUrl::imageFile($this->photo_id, $this->image_size,  $this->ext);
-        $img_path=UserUrl::photobookPhotos(false, $this->photobook_id, $this->user_id).'/'.UserUrl::imageFile($this->photo_id, $this->image_size,  $this->ext);
+        $img_path=UserUrl::photobookPhotos(true, $this->photobook_id, $this->user_id).'/'.UserUrl::imageFile($this->photo_id, $this->image_size,  $this->ext);
         $uid=rand(1,99999999999999999);
 
 
-        $lastModified=filemtime($img_path);
+        $lastModified=$this->mtime;//filemtime($img_path);
 
         if($this->view=='svg'){
 

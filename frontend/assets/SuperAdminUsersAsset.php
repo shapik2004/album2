@@ -30,7 +30,8 @@ class SuperAdminUsersAsset extends AssetBundle
     public $js = [
 
         'js/jquery.miniColors.js',
-        'js/admin-users.js'
+        'js/admin-users.js',
+         'js/photobooks-index.js',
 
 
     ];

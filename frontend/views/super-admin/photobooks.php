@@ -254,6 +254,16 @@ SuperAdminUsersAsset::register($this);
 
 
 
+
+                                                        <a href="<?php echo Url::toRoute(['photobook-api/delete', 'id'=>$order->id]); ?>" class="pull-right btnDelete" data-bootbox-confirm="<?php echo Yii::t('app', 'Вы уверены, что хотите удалить эту фотокнигу?') ?>"   >
+                                                            <?php echo Yii::t('app', 'Удалить'); ?>
+                                                        </a><br/>
+
+
+
+
+
+
                                                     <!--
 
                                                     <a class="pull-right tooltips btnPhotobookCopy"  href="#" data-url="<?php echo Url::toRoute(['photobook-api/copy-to-user', 'id'=>AlphaId::id($order->id), 'ref'=>AlphaId::id($order->user_id), 'user_id'=>$order->user_id]); ?>"   >

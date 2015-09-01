@@ -22,6 +22,12 @@ return [
                 'encryption' => 'ssl',
             ],
         ],
+        'resourceManager' => [
+            'class' => 'dosamigos\resourcemanager\AmazonS3ResourceManager',
+            'key' => 'AKIAIG4IXDZN74OWIHFQ',
+            'secret' => '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',
+            'bucket' => 'photobook-new'
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

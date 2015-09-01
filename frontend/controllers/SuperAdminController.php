@@ -412,11 +412,11 @@ class SuperAdminController extends BaseController
 
         $status = Yii::$app->request->get('status', Photobook::STATUS_NEW);
 
-        if($status==Photobook::STATUS_DEMO){
+        /*if($status==Photobook::STATUS_DEMO){
 
             $this->redirect(Url::toRoute(['photobooks/index']));
             return;
-        }
+        }*/
 
 
        // $user_id=Yii::$app->user->identity->getId();
