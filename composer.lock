@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8b39882552c8de835f86a6e3fbe31079",
+    "hash": "fec1bc2e6c3b436a82e6d59beab97a60",
     "packages": [
         {
             "name": "2amigos/yii2-resource-manager-component",
@@ -1065,16 +1065,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "85562e423e2d96545a28747a1e068b58437f0779"
+                "reference": "848fb19e123aaf2ea2e535282eed6c6cc781bd9a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/848fb19e123aaf2ea2e535282eed6c6cc781bd9a",
-                "reference": "85562e423e2d96545a28747a1e068b58437f0779",
+                "reference": "848fb19e123aaf2ea2e535282eed6c6cc781bd9a",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": "*",
+                "yiisoft/yii2": ">=2.0.4",
                 "yiisoft/yii2-bootstrap": "*"
             },
             "type": "yii2-extension",
@@ -1104,7 +1104,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2014-10-19 14:42:58"
+            "time": "2015-08-23 10:25:10"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -1211,7 +1211,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~5.6.0"
+        "php": "~5.6.0",
+        "ext-gd": "*"
     },
     "platform-dev": []
 }
