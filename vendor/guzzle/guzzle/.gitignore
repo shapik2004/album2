@@ -14,7 +14,7 @@ phpunit.xml
 composer.phar
 composer.lock
 composer-test.lock
-vendor/
+#vendor/
 
 # Ignore build files
 build/
