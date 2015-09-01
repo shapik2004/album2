@@ -30,9 +30,6 @@ use yii\test\FixtureTrait;
  * #load all fixtures except User
  * yii fixture "*" -User
  *
- * #append fixtures to already loaded
- * yii fixture User --append
- *
  * #load fixtures with different namespace.
  * yii fixture/load User --namespace=alias\my\custom\namespace\goes\here
  * ~~~
@@ -55,11 +52,6 @@ class FixtureController extends Controller
      */
     public $namespace = 'tests\unit\fixtures';
     /**
-     * @var bool whether to append new fixture data to the existing ones.
-     * Defaults to false, meaning if there is any existing fixture data, it will be removed.
-     */
-    public $append = false;
-    /**
      * @var array global fixtures that should be applied when loading and unloading. By default it is set to `InitDbFixture`
      * that disables and enables integrity check, so your data can be safely loaded.
      */
@@ -74,7 +66,7 @@ class FixtureController extends Controller
     public function options($actionID)
     {
         return array_merge(parent::options($actionID), [
-            'namespace', 'globalFixtures', 'append'
+            'namespace', 'globalFixtures'
         ]);
     }
 
@@ -87,10 +79,6 @@ class FixtureController extends Controller
      * # any existing fixture data will be removed first
      * yii fixture/load User UserProfile
      *
-     * # load the fixture data specified by User and UserProfile.
-     * # the new fixture data will be appended to the existing one
-     * yii fixture/load --append User UserProfile
-     *
      * # load all available fixtures found under 'tests\unit\fixtures'
      * yii fixture/load "*"
      *
@@ -100,9 +88,18 @@ class FixtureController extends Controller
      *
      * @throws Exception if the specified fixture does not exist.
      */
-    public function actionLoad($fixturesInput)
+    public function actionLoad()
     {
         $fixturesInput = func_get_args();
+        if ($fixturesInput === []) {
+            $this->stdout($this->getHelpSummary() . "\n");
+
+            $helpCommand = Console::ansiFormat("yii help fixture", [Console::FG_CYAN]);
+            $this->stdout("Use $helpCommand to get usage info.\n");
+
+            return self::EXIT_CODE_NORMAL;
+        }
+
         $filtered = $this->filterFixtures($fixturesInput);
         $except = $filtered['except'];
 
@@ -147,12 +144,11 @@ class FixtureController extends Controller
 
         $fixturesObjects = $this->createFixtures($fixtures);
 
-        if (!$this->append) {
-            $this->unloadFixtures($fixturesObjects);
-        }
-
+        $this->unloadFixtures($fixturesObjects);
         $this->loadFixtures($fixturesObjects);
         $this->notifyLoaded($fixtures);
+
+        return static::EXIT_CODE_NORMAL;
     }
 
     /**
@@ -380,7 +376,7 @@ class FixtureController extends Controller
     }
 
     /**
-     * Finds fixtures to be loaded, for example "User", if no fixtures were specified then all of them 
+     * Finds fixtures to be loaded, for example "User", if no fixtures were specified then all of them
      * will be searching by suffix "Fixture.php".
      * @param array $fixtures fixtures to be loaded
      * @return array Array of found fixtures. These may differ from input parameter as not all fixtures may exists.
@@ -436,8 +432,8 @@ class FixtureController extends Controller
     /**
      * Filters fixtures by splitting them in two categories: one that should be applied and not.
      * If fixture is prefixed with "-", for example "-User", that means that fixture should not be loaded,
-     * if it is not prefixed it is considered as one to be loaded. Returs array:
-     * 
+     * if it is not prefixed it is considered as one to be loaded. Returns array:
+     *
      * ~~~
      * [
      *     'apply' => [

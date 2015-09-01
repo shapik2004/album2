@@ -7,9 +7,7 @@
 /* @var $generator yii\gii\generators\model\Generator */
 /* @var $tableName string full table name */
 /* @var $className string class name */
-/* @var $classNamespace string class fully qualified namespace */
-/* @var $baseClassName string base class name */
-/* @var $baseClassNamespace string base class fully qualified namespace */
+/* @var $queryClassName string query class name */
 /* @var $tableSchema yii\db\TableSchema */
 /* @var $labels string[] list of attribute labels (name => label) */
 /* @var $rules string[] list of validation rules */
@@ -21,9 +19,6 @@ echo "<?php\n";
 namespace <?= $generator->ns ?>;
 
 use Yii;
-<?php if ($classNamespace !== $baseClassNamespace): ?>
-use <?= ltrim($generator->baseClass, '\\') ?><?= $className === $baseClassName ? ' as ' . $baseClassName . 'Base' : ''  ?>;
-<?php endif; ?>
 
 /**
  * This is the model class for table "<?= $generator->generateTableName($tableName) ?>".
@@ -38,7 +33,7 @@ use <?= ltrim($generator->baseClass, '\\') ?><?= $className === $baseClassName ?
 <?php endforeach; ?>
 <?php endif; ?>
  */
-class <?= $className ?> extends <?= ($className === $baseClassName ? $baseClassName . 'Base' : $baseClassName) . "\n" ?>
+class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . "\n" ?>
 {
     /**
      * @inheritdoc
@@ -63,7 +58,7 @@ class <?= $className ?> extends <?= ($className === $baseClassName ? $baseClassN
      */
     public function rules()
     {
-        return [<?= "\n            " . implode(",\n            ", $rules) . "\n        " ?>];
+        return [<?= "\n            " . implode(",\n            ", $rules) . ",\n        " ?>];
     }
 
     /**
@@ -87,4 +82,18 @@ class <?= $className ?> extends <?= ($className === $baseClassName ? $baseClassN
         <?= $relation[0] . "\n" ?>
     }
 <?php endforeach; ?>
+<?php if ($queryClassName): ?>
+<?php
+    $queryClassFullName = ($generator->ns === $generator->queryNs) ? $queryClassName : '\\' . $generator->queryNs . '\\' . $queryClassName;
+    echo "\n";
+?>
+    /**
+     * @inheritdoc
+     * @return <?= $queryClassFullName ?> the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new <?= $queryClassFullName ?>(get_called_class());
+    }
+<?php endif; ?>
 }

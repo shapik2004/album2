@@ -23,7 +23,7 @@ return [
             ],
         ],
         'resourceManager' => [
-            'class' => 'dosamigos\resourcemanager\AmazonS3ResourceManager',
+            'class' => 'common\components\AmazonS3ResourceManager',
             'key' => 'AKIAIG4IXDZN74OWIHFQ',
             'secret' => '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',
             'bucket' => 'photobook-new'

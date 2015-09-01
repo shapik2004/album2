@@ -116,7 +116,7 @@ class UploadedFile extends Object
      * This is mainly used when multiple files were uploaded and saved as 'files[0]', 'files[1]',
      * 'files[n]'..., and you can retrieve them all by passing 'files' as the name.
      * @param string $name the name of the array of files
-     * @return UploadedFile[] the array of CUploadedFile objects. Empty array is returned
+     * @return UploadedFile[] the array of UploadedFile objects. Empty array is returned
      * if no adequate upload was found. Please note that this array will contain
      * all files from all sub-arrays regardless how deeply nested they are.
      */
@@ -200,15 +200,6 @@ class UploadedFile extends Object
         if (self::$_files === null) {
             self::$_files = [];
             if (isset($_FILES) && is_array($_FILES)) {
-
-              /*  $files=$_FILES;
-                $newfiles=array();
-
-                foreach ($files as $key => $value) {
-
-
-                }*/
-
                 foreach ($_FILES as $class => $info) {
                     self::loadFilesRecursive($class, $info['name'], $info['tmp_name'], $info['type'], $info['size'], $info['error']);
                 }

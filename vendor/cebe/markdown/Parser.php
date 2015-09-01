@@ -53,8 +53,7 @@ abstract class Parser
 			return '';
 		}
 
-		// http://stackoverflow.com/a/18992691/1106908
-		$text = preg_replace('~\R~', "\n", $text);
+		$text = str_replace(["\r\n", "\n\r", "\r"], "\n", $text);
 
 		$this->prepareMarkers($text);
 
@@ -79,8 +78,7 @@ abstract class Parser
 			return '';
 		}
 
-		// http://stackoverflow.com/a/18992691/1106908
-		$text = preg_replace('~\R~', "\n", $text);
+		$text = str_replace(["\r\n", "\n\r", "\r"], "\n", $text);
 
 		$this->prepareMarkers($text);
 
@@ -321,7 +319,7 @@ abstract class Parser
 	{
 		if ($this->_depth >= $this->maximumNestingLevel) {
 			// maximum depth is reached, do not parse input
-			return ['text', $text];
+			return [['text', $text]];
 		}
 		$this->_depth++;
 

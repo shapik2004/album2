@@ -12,6 +12,8 @@ return array(
     'Guzzle' => array($vendorDir . '/guzzle/guzzle/src'),
     'Faker\\PHPUnit' => array($vendorDir . '/fzaninotto/faker/test'),
     'Faker' => array($vendorDir . '/fzaninotto/faker/src'),
+    'Egulias\\' => array($vendorDir . '/egulias/email-validator/src'),
+    'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
     'Diff' => array($vendorDir . '/phpspec/php-diff/lib'),
     'Aws' => array($vendorDir . '/aws/aws-sdk-php/src'),
 );

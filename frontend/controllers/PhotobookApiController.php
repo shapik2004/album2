@@ -21,7 +21,7 @@ use common\models\PhotobookState;
 use yii\web\UploadedFile;
 use app\components\UserUrl;
 use common\components\Utils;
-use dosamigos\resourcemanager\AmazonS3ResourceManager;
+use common\components\AmazonS3ResourceManager;
 
 
 
