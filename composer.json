@@ -12,12 +12,12 @@
     "irc": "irc://irc.freenode.net/yii",
     "source": "https://github.com/yiisoft/yii2"
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "preferred-install": "stable",
   "require": {
     "php": "~5.6.0",
     "ext-gd": "*",
-    "yiisoft/yii2": "*",
+    "yiisoft/yii2": "~2.0.6",
     "yiisoft/yii2-bootstrap": "*",
     "yiisoft/yii2-swiftmailer": "*",
     "aws/aws-sdk-php": "2.5.2",

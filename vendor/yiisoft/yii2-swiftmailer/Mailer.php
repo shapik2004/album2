@@ -212,7 +212,6 @@ class Mailer extends BaseMailer
         } else {
             throw new InvalidConfigException('Object configuration must be an array containing a "class" element.');
         }
-
         if (isset($config['constructArgs'])) {
             $args = [];
             foreach ($config['constructArgs'] as $arg) {
@@ -227,15 +226,13 @@ class Mailer extends BaseMailer
         } else {
             $object = Yii::createObject($className);
         }
-
         if (!empty($config)) {
-            $reflection = new \ReflectionObject($object);
             foreach ($config as $name => $value) {
-                if ($reflection->hasProperty($name) && $reflection->getProperty($name)->isPublic()) {
+                if (property_exists($object, $name)) {
                     $object->$name = $value;
                 } else {
                     $setter = 'set' . $name;
-                    if ($reflection->hasMethod($setter) || $reflection->hasMethod('__call')) {
+                    if (method_exists($object, $setter) || method_exists($object, '__call')) {
                         $object->$setter($value);
                     } else {
                         throw new InvalidConfigException('Setting unknown property: ' . $className . '::' . $name);

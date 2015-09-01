@@ -658,10 +658,7 @@ class User extends Component
         if ($allowCaching && empty($params) && isset($this->_access[$permissionName])) {
             return $this->_access[$permissionName];
         }
-        if (($manager = $this->getAuthManager()) === null) {
-            return false;
-        }
-        $access = $manager->checkAccess($this->getId(), $permissionName, $params);
+        $access = $this->getAuthManager()->checkAccess($this->getId(), $permissionName, $params);
         if ($allowCaching && empty($params)) {
             $this->_access[$permissionName] = $access;
         }
