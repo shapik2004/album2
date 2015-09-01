@@ -1,8 +1,8 @@
 *.psd
 *.pdf
-*.jpg
-*.png
-*.jar
+#*.jpg
+#*.png
+#*.jar
 *.tar
 *.zip
-*.svg
+#*.svg
