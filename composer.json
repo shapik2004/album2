@@ -22,7 +22,8 @@
     "aws/aws-sdk-php": "2.5.2",
     "yurkinx/yii2-image": "*",
     "symfony/class-loader": "2.*",
-    "symfony/yaml": "2.*"
+    "symfony/yaml": "2.*",
+    "symfony/event-dispatcher": "*"
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",
