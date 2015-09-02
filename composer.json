@@ -35,6 +35,11 @@
   "config": {
     "process-timeout": 1800
   },
+  "scripts": {
+    "compile": [
+      "bower install"
+    ]
+  },
   "extra": {
     "asset-installer-paths": {
       "npm-asset-library": "vendor/npm",
