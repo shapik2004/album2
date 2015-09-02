@@ -1,6 +1,0 @@
-{
-    "name": "photobook",
-    "dependencies": {
-        "bootstrap": "*"
-    }
-}

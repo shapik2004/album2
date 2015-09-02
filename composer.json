@@ -12,17 +12,16 @@
     "irc": "irc://irc.freenode.net/yii",
     "source": "https://bitbucket.org/maximbalukh/photobooknew.git"
   },
-  "minimum-stability": "stable",
-  "preferred-install": "stable",
+  "minimum-stability": "dev",
+
   "require": {
     "php": "~5.6.0",
 
     "ext-gd": "*",
-    "yiisoft/yii2": "2.0.6",
-
+    "yiisoft/yii2": "*",
+    "yiisoft/yii2-bootstrap": "*",
     "yiisoft/yii2-swiftmailer": "*",
     "aws/aws-sdk-php": "2.5.2",
-
     "yurkinx/yii2-image": "dev-master"
 
   },
@@ -35,12 +34,8 @@
   "config": {
     "process-timeout": 1800
   },
-  "scripts": {
-    "compile": [
-      "bower install"
-    ]
-  },
   "extra": {
+
     "asset-installer-paths": {
       "npm-asset-library": "vendor/npm",
       "bower-asset-library": "vendor/bower"
