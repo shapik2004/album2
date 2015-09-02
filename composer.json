@@ -19,7 +19,7 @@
 
     "ext-gd": "*",
     "yiisoft/yii2": "2.0.6",
-    "yiisoft/yii2-bootstrap": "*",
+
     "yiisoft/yii2-swiftmailer": "*",
     "aws/aws-sdk-php": "2.5.2",
 
