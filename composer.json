@@ -17,12 +17,16 @@
   "require": {
     "php": "~5.6.0",
 
+    "ext-mbstring": "*",
     "ext-gd": "*",
-    "yiisoft/yii2": "*",
+    "yiisoft/yii2-dev": "*",
     "yiisoft/yii2-bootstrap": "*",
     "yiisoft/yii2-swiftmailer": "*",
+
     "aws/aws-sdk-php": "2.5.2",
-    "yurkinx/yii2-image": "dev-master"
+    "yurkinx/yii2-image": "dev-master",
+    "fxp/composer-asset-plugin": "*"
+
 
   },
   "require-dev": {
