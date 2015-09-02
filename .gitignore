@@ -33,6 +33,8 @@ phpunit.phar
 
 #frontend/web/uploads/gL*
 
+target
+.env
 
 *.pdf
 *.tar
