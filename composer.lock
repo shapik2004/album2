@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66ded51f157155cb7cbf76a484e8ba39",
+    "hash": "d5a1c20808fd8a6dbe523b6dc1182d25",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -589,16 +589,16 @@
         },
         {
             "name": "yiisoft/jquery",
-            "version": "1.8.3",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/jquery.git",
-                "reference": "04130695bf3c4a19a353ff7a680432d306361a60"
+                "reference": "bc09bbbc8b40cf89812036188b6f94ae7627c73c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/jquery/zipball/04130695bf3c4a19a353ff7a680432d306361a60",
-                "reference": "04130695bf3c4a19a353ff7a680432d306361a60",
+                "url": "https://api.github.com/repos/yiisoft/jquery/zipball/bc09bbbc8b40cf89812036188b6f94ae7627c73c",
+                "reference": "bc09bbbc8b40cf89812036188b6f94ae7627c73c",
                 "shasum": ""
             },
             "type": "library",
@@ -609,7 +609,33 @@
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
             "abandoned": true,
-            "time": "2014-09-17 13:48:27"
+            "time": "2014-05-07 05:00:09"
+        },
+        {
+            "name": "yiisoft/jquery-pjax",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/jquery-pjax.git",
+                "reference": "d35c0a8fca20c61c6c2bd7276ecd06b714a6bebc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/d35c0a8fca20c61c6c2bd7276ecd06b714a6bebc",
+                "reference": "d35c0a8fca20c61c6c2bd7276ecd06b714a6bebc",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/jquery": ">=1.8"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "pushState + ajax = pjax, a forked maintainted by the Yii Framework core developers",
+            "homepage": "https://github.com/yiisoft/jquery-pjax#readme",
+            "time": "2015-03-07 20:45:14"
         },
         {
             "name": "yiisoft/yii2",

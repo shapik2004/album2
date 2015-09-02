@@ -22,7 +22,7 @@
     "yiisoft/yii2-bootstrap": "*",
     "yiisoft/yii2-swiftmailer": "*",
     "aws/aws-sdk-php": "2.5.2",
-    "yiisoft/jquery": "~1.8.1",
+    "yiisoft/jquery-pjax": "2.0.3",
     "yurkinx/yii2-image": "dev-master"
 
   },
