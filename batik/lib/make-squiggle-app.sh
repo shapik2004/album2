@@ -22,7 +22,7 @@
 # window for the current directory so that the user can drag the icon
 # into their desired installation location (probably /Applications).
 #
-# $Id$
+# $Id: make-squiggle-app.sh.template 985243 2010-08-13 15:30:25Z helder $
 # -----------------------------------------------------------------------------
 
 trap 'echo Error creating application bundle.; exit 1' ERR
@@ -48,9 +48,9 @@ cat >$CON/Info.plist <<EOF
   <key>CFBundleExecutable</key>
   <string>Squiggle</string>
   <key>CFBundleVersion</key>
-  <string>1.7+r608262</string>
+  <string>1.8</string>
   <key>CFBundleShortVersionString</key>
-  <string>1.7+r608262</string>
+  <string>1.8</string>
   <key>CFBundleIconFile</key>
   <string>Squiggle.icns</string>
   <key>CFBundleIdentifier</key>
@@ -64,7 +64,7 @@ cat >$CON/Info.plist <<EOF
   <key>CFBundleSignature</key>
   <string>????</string>
   <key>NSHumanReadableCopyright</key>
-  <string>Copyright © 2008 Apache Software Foundation. All Rights Reserved.</string>
+  <string>Copyright © 2015 Apache Software Foundation. All Rights Reserved.</string>
 </dict>
 </plist>
 EOF

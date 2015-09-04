@@ -673,9 +673,9 @@ class PhotobookApiController extends BaseController
 
                         $batik_path=Yii::getAlias('@app').DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'batik'.DIRECTORY_SEPARATOR;
 
-                        $cmds[]="java -d64 -Xms512m -Xmx4g -jar ".$batik_path."batik-rasterizer.jar -m image/jpeg -w 8572 -h 4286 -q 0.99 -dpi 300 -d ".$jpg_path." ".$svg_path;
+                        $cmds[]="java -d64 -Xms512m -Xmx4g -jar ".$batik_path."batik-rasterizer-1.8.jar -m image/jpeg -w 8572 -h 4286 -q 0.99 -dpi 300 -d ".$jpg_path." ".$svg_path;
 
-                        exec("java -d64 -Xms512m -Xmx4g -jar ".$batik_path."batik-rasterizer.jar -m image/jpeg -w 8572 -h 4286 -q 0.99 -dpi 300 -d ".$jpg_path." ".$svg_path);
+                        exec("java -d64 -Xms512m -Xmx4g -jar ".$batik_path."batik-rasterizer-1.8.jar -m image/jpeg -w 8572 -h 4286 -q 0.99 -dpi 300 -d ".$jpg_path." ".$svg_path);
 
                         if(file_exists($svg_path)) unlink($svg_path);
 

@@ -302,7 +302,7 @@ class TemplatesController extends BaseController
 
            // $cmds[]="java -d64 -Xms512m -Xmx4g -jar ".$batik_path."batik-rasterizer.jar -m image/jpg -w 350 -h 125 -q 0.99 -dpi 72 -d ".$png_path." ".$svg_path;
 
-            exec("java -d64 -Xms512m -Xmx4g -jar ".$batik_path."batik-rasterizer.jar -m image/jpg -w 350 -h 125 -q 0.65 -dpi 72 -d ".$png_path." ".$svg_path);
+            exec("java -d64 -Xms512m -Xmx4g -jar ".$batik_path."batik-rasterizer-1.8.jar -m image/jpg -w 350 -h 125 -q 0.65 -dpi 72 -d ".$png_path." ".$svg_path);
 
 
         }

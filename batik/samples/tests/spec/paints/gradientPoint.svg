@@ -24,7 +24,7 @@
 <!-- Gradients on Points.                                                   -->
 <!--                                                                        -->
 <!-- @author deweese@apache.org                                             -->
-<!-- @version $Id: gradientPoint.svg 475477 2006-11-15 22:44:28Z cam $ -->
+<!-- @version $Id: gradientPoint.svg 1626072 2014-09-18 20:17:34Z vhennebert $ -->
 <!-- ====================================================================== -->
 <?xml-stylesheet type="text/css" href="../../resources/style/test.css" ?>  
 <svg id="body" width="450" height="500" viewBox="0 0 450 500"
@@ -37,20 +37,20 @@
    <g id="testContent">
 
       <defs>
-         <linearGradient id="hGrad" x1="0" y1="0" x2="1" y2="0">
+         <linearGradient id="hGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse">
                  <stop offset="0" style="stop-color:crimson" />
                  <stop offset="1" style="stop-color:gold" />
          </linearGradient>
-         <linearGradient id="vGrad" x1="0" y1="0" x2="0" y2="1">
+         <linearGradient id="vGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse">
                  <stop offset="0" style="stop-color:crimson" />
                  <stop offset="1" style="stop-color:gold" />
          </linearGradient>
-         <linearGradient id="hvGrad" x1="0" y1="0" x2="1" y2="1">
+         <linearGradient id="hvGrad" x1="0" y1="0" x2="1" y2="1" gradientUnits="userSpaceOnUse">
                  <stop offset="0" style="stop-color:crimson" />
                  <stop offset="1" style="stop-color:gold" />
          </linearGradient>
          
-         <radialGradient id="rGrad" cx=".5" cy=".5" r="1">
+         <radialGradient id="rGrad" cx=".5" cy=".5" r="1" gradientUnits="userSpaceOnUse">
                  <stop offset="0" style="stop-color:crimson" />
                  <stop offset="1" style="stop-color:gold" />
          </radialGradient>
